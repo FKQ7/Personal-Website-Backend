@@ -1,0 +1,100 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Project Archive - Fayez Khalid</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% tailwind_css %}
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro&display=swap');
+.readex-pro {
+  font-family: "Readex Pro", sans-serif;
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(30, 215, 96, 0.1), 
+              0 4px 6px -2px rgba(30, 215, 96, 0.05);
+}
+
+h1 {
+  background: linear-gradient(-45deg, #ffffff, #1ED760, #ffffff);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-flow 8s ease infinite;
+}
+
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body {
+  background-image: radial-gradient(
+    circle 600px at var(--x) var(--y),
+    rgba(30, 215, 96, 0.15),
+    transparent 80%
+  );
+  background-attachment: fixed;
+}
+</style>
+
+<body class="mx-auto readex-pro min-h-screen max-w-screen-xl bg-background-color text-primary p-5 xl:pt-10">
+  <div class="container pt-5">
+    <header class="text-center mb-10">
+      <h1 class="text-5xl font-bold">Project Archive</h1>
+      <p class="text-lg text-gray-400 pt-3">All projects I've worked on — from hackathons to personal experiments</p>
+      <a href="/" class="text-primary hover:text-secondary font-medium pt-3 inline-block">← Back to Home</a>
+    </header>
+
+    <main>
+      <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        {% for project in projects %}
+        <a href="{{ project.link|default:'#' }}" class="block">
+          <div class="card rounded-lg p-4 h-full"
+               style="background: linear-gradient(140deg, rgba(42,42,42,1) 50%, rgba(33,201,101,1) 100%);">
+            {% if project.image %}
+              <img class="w-full h-48 object-cover rounded-lg mb-4"
+                   src="{{ project.image }}" alt="{{ project.title }}">
+            {% endif %}
+            <h3 class="text-xl font-bold text-secondary">{{ project.title }}</h3>
+            <p class="text-sm mt-2">{{ project.description|truncatechars:150 }}</p>
+
+            {% if project.skills.all %}
+            <div class="flex flex-wrap gap-2 mt-3">
+              {% for skill in project.skills.all %}
+                <span class="px-3 py-1 text-xs font-medium bg-gray-800 text-secondary rounded-full">
+                  {{ skill }}
+                </span>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+        </a>
+        {% empty %}
+        <p class="col-span-full text-center text-gray-400">No projects available yet.</p>
+        {% endfor %}
+      </section>
+    </main>
+
+    <footer class="text-center mt-10">
+      <p class="pt-5 text-gray-400">© 2024 Fayez Khalid. All rights reserved.</p>
+    </footer>
+  </div>
+
+<script>
+  window.addEventListener('mousemove', e => {
+    document.body.style.setProperty('--x', e.clientX + 'px');
+    document.body.style.setProperty('--y', e.clientY + 'px');
+  });
+</script>
+</body>
+</html>

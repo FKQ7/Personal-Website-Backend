@@ -1,0 +1,274 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Django Tailwind</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% tailwind_css %}
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&family=Noto+Sans+Arabic:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Readex+Pro&family=Vazirmatn:wght@100..900&display=swap');
+.readex-pro {
+  font-family: "Readex Pro", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "HEXP" 0;
+}
+.card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+.card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(30, 215, 96, 0.1), 0 4px 6px -2px rgba(30, 215, 96, 0.05);
+}
+.social-icon svg {
+        transition: color 0.3s ease;
+}
+.social-icon:hover svg {
+        color: #1ED760;
+}
+.project-arrow {
+        transition: transform 0.3s ease;
+}
+.card:hover .project-arrow {
+        transform: translateX(5px);
+}
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+h1 {
+  background: linear-gradient(-45deg, #ffffff, #1ED760, #ffffff);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-flow 4s ease infinite;
+}
+
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  background: linear-gradient(-45deg, #ffffff, #1ED760, #ffffff);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-flow 8s ease infinite;
+}
+
+
+.header h3,
+.header > div > p,
+.header .flex, 
+.header .pt-7 > h2,
+.header .pt-7 > p,
+.Experince-section > h2,
+.Experince-section .card,
+.projects-section > h2,
+.projects-section .card {
+  opacity: 0; 
+  animation: fadeInUp 0.2s ease-out forwards;
+}
+
+
+.header h3 { animation-delay: 0.2s; }
+.header > div > p { animation-delay: 0.4s; }
+.header .flex { animation-delay: 0.6s; }
+.header .pt-7 > h2 { animation-delay: 0.8s; } 
+.header .pt-7 > p { animation-delay: 1.0s; } 
+.Experince-section > h2 { animation-delay: 1.2s; }
+.Experince-section .card:nth-of-type(1) { animation-delay: 1.4s; }
+.Experince-section .card:nth-of-type(2) { animation-delay: 1.6s; }
+.Experince-section .card:nth-of-type(3) { animation-delay: 1.8s; }
+.projects-section > h2 { animation-delay: 2.0s; }
+.projects-section .card { animation-delay: 2.2s; }
+
+
+body {
+    background-image: radial-gradient(
+        circle 600px at var(--x) var(--y),
+        rgba(30, 215, 96, 0.15),
+        transparent 80%
+    );
+    background-attachment: fixed;
+}
+
+
+</style>
+
+</head>
+<body class="mx-auto readex-pro font-poppins min-h-screen max-w-screen-xl bg-background-color text-primary p-5 xl:pt-10">
+  <div class="container pt-5 ">
+    <div class="xl:flex xl:gap-x-20">
+    <header class="header xl:w-1/2 xl:pr-32">
+      <div>
+        <h1 class="text-5xl font-bold xl:text-6xl">Fayez Khalid</h1>
+        <h3 class="text-3xl font-semibold text-secondary pt-2 xl:pt-4">Software Engineer</h3>
+        <p class="text-lg pt-1">Software Engineering Undergraduate | GPA 3.92/4.0 | Full-Stack & AI/ML Enthusiast | Hackathon Participant</p>
+        <div class="flex items-center gap-x-4 pt-4">
+          <a href="https://github.com/FKQ7" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-secondary transition-colors" aria-label="GitHub Profile">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.165 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.65.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.308.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" />
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/fayez-khalid-al-shwayya" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-secondary transition-colors" aria-label="LinkedIn Profile">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+          <a href="https://www.x.com/fayez_alshwayya" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-secondary transition-colors" aria-label="X Profile">
+             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+               <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.931ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+             </svg>
+          </a>
+        </div>
+
+      </div>
+        <section class="skills-section mt-10">
+        <h3 class="text-xl font-bold text-secondary">Technological Skills</h3>
+        <div class="flex flex-wrap gap-2 pt-4">
+            {% for skill in skills %}
+                <span class="px-3 py-1 text-sm font-medium bg-gray-800 text-secondary rounded-full">
+                    {{ skill }}
+                </span>
+            {% endfor %}
+        </div>
+      </section>
+
+      <div class="pt-7">
+        <h2 class="text-4xl font-bold text-secondary">About</h2>
+        <p class="text-lg xl:text-xl pt-3">
+          I am a Software Engineering student (GPA 3.92/4.0) with strong experience in backend 
+          development and AI/ML. I thrive in hackathons, where I apply problem-solving and teamwork 
+          to deliver real-world solutions. Currently, I am expanding my expertise in cloud computing (AWS, Azure) 
+          and enterprise systems (SAP) to prepare for opportunities in leading Saudi companies like Aramco and SABIC.
+        </p>
+      </div>
+    </header>
+    <main class="xl: xl:pt-0 pt-10 xl:w-1/2">
+      <section class="Experince-section">
+                                <h2 class="text-3xl font-bold">Experince</h2>
+                                {% for exp in experiences %} 
+                                <div class="card w-full rounded-lg mt-5 p-3" style="background: linear-gradient(140deg, rgba(42,42,42,1) 50%, rgba(33,201,101,1) 100%);"> 
+                                  
+                                  <a href="{{ exp.link|default:'#' }}">
+                                     <h4 class="text-lg font-bold text-secondary">{{ exp.title }}</h4>
+                                      <p class="pt-2 text-sm">{{ exp.date }}</p>
+
+                                  <p class="pt-2 text-md">{{ exp.description }}</p>
+                                  {% if exp.skills.all %}
+                                  <div class="flex flex-wrap gap-1 pt-2">
+                                    {% for skill in exp.skills.all %}
+                                        <span class="px-3 py-1 text-sm font-medium bg-gray-800 text-secondary rounded-full">
+                                            {{ skill }}
+                                        </span>
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                                    <div class="flex justify-end">
+                                  <svg width="38px" viewBox="0 0 24 24" xmlns="http://www.w.org/2000/svg">
+                                    <g fill="#ffff" fill-rule="nonzero">
+                                      <path d="M5.99663564,12 C5.99663564,12.3796958 6.2785522,12.693491 6.64431986,12.7431534 L6.74600482,12.75 L19.4403188,12.75 L17.2236906,14.9696699 C16.957648,15.2359365 16.9334623,15.6526002 17.1511335,15.9462117 L17.2236906,16.0303301 C17.4897332,16.2965966 17.9060464,16.3208027 18.199411,16.1029482 L18.2834587,16.0303301 L21.7805148,12.5303301 C22.0465575,12.2640635 22.0707431,11.8473998 21.8530719,11.5537883 L21.7805148,11.4696699 L18.2834587,7.96966991 C17.9908118,7.6767767 17.5163375,7.6767767 17.2236906,7.96966991 C16.957648,8.23593648 16.9334623,8.65260016 17.1511335,8.94621165 L17.2236906,9.03033009 L19.4403188,11.25 L6.74600482,11.25 C6.33213965,11.25 5.99663564,11.5857864 5.99663564,12 Z M2,12 C2,14.7614237 4.23669341,17 6.99579455,17 C9.13942126,17 10.9677126,15.6487523 11.6767209,13.7508814 L10.02458,13.7507384 C9.41981754,14.7964836 8.28989447,15.5 6.99579455,15.5 C5.06442375,15.5 3.49873836,13.9329966 3.49873836,12 C3.49873836,10.0670034 5.06442375,8.5 6.99579455,8.5 C8.29030194,8.5 9.42052906,9.20395951 10.0251511,10.2502495 L11.6770941,10.2501179 C10.9683543,8.35172204 9.13979746,7 6.99579455,7 C4.23669341,7 2,9.23857625 2,12 Z"></path>
+                                    </g>
+                                  </svg>
+        
+      </div>
+    </a></div> {% endfor %}
+      <a href="/resume/"><p class="text-primary font-bold hover:text-secondary py-6">View Full Résumé <svg xmlns="http://www.w.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg></p></a>
+      </section>
+      </a>
+<section class="projects-section">
+  <h2 class="text-3xl font-bold">Highlighted Projects</h2>
+
+  <div class="mt-6 space-y-6">
+    {% for project in projects %}
+    <a href="{{ project.link|default:'#' }}" class="block">
+      <div class="card rounded-2xl xl:p-6 xl:w-full xl:h-auto  shadow-lg transition-transform hover:scale-[1.01]"
+           style="background: linear-gradient(140deg, rgba(42,42,42,1) 50%, rgba(33,201,101,1) 100%);">
+        
+        {% if project.image %}
+        <div class="mb-4">
+          <img class="w-full h-56 xl:h-72 object-cover rounded-xl"
+               src="{{ project.image }}" alt="{{ project.title }}">
+        </div>
+        {% endif %}
+
+        <div class="flex flex-col px-6 pt-1 pb-6 xl:p-0">
+          <h3 class="text-2xl font-bold text-secondary">{{ project.title }}</h3>
+          <p class="text-base mt-2 text-gray-200 leading-relaxed">
+            {{ project.description|truncatechars:180 }}
+          </p>
+
+          {% if project.skills.all %}
+          <div class="flex flex-wrap gap-2 mt-4">
+            {% for skill in project.skills.all %}
+              <span class="px-3 py-1 text-xs font-semibold bg-black/30 text-secondary rounded-full border border-secondary/40">
+                {{ skill }}
+              </span>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </a>
+    {% empty %}
+      <p class="text-center text-gray-400">No projects to display yet.</p>
+    {% endfor %}
+  </div>
+
+  <a href="/archive/">
+    <p class="text-primary py-6 font-bold hover:text-secondary inline-flex items-center">
+      View Full Project Archive 
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" 
+           fill="currentColor" class="ml-2 h-5 w-5 transition-transform group-hover/link:translate-x-1">
+        <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path>
+      </svg>
+    </p>
+  </a>
+</section>
+
+  <footer>
+        <p class="pt-5">Loosely designed in<a href="https://www.figma.com/" class="font-medium text-secondary hover:text-green-300 focus-visible:text-green-300" target="_blank" rel="noreferrer noopener" aria-label="Figma (opens in a new tab)">Figma</a> and coded in<a href="https://code.visualstudio.com/" class="font-medium text-secondary hover:text-green-300 focus-visible:text-green-300" target="_blank" rel="noreferrer noopener" aria-label="Visual Studio Code (opens in a new tab)">Visual Studio Code</a> by yours truly. Built with<a href="https://tailwindcss.com/" class="font-medium text-secondary hover:text-green-300 focus-visible:text-green-300" target="_blank" rel="noreferrer noopener" aria-label="Tailwind CSS (opens in a new tab)">Tailwind CSS</a>, deployed with<a href="https://vercel.com/" class="font-medium text-secondary-400 hover:text-green-300 focus-visible:text-green-300" target="_blank" rel="noreferrer noopener" aria-label="Vercel (opens in a new tab)">Vercel</a>. All text is set in the<a href="https://fonts.google.com/specimen/Almarai" class="font-medium text-secondary hover:text-green-300 focus-visible:text-green-300" target="_blank" rel="noreferrer noopener" aria-label="Almarai (opens in a new tab)">Almarai</a> typeface.</p>
+        <p class="pt-1">© 2024 Fayez Khalid. All rights reserved.</p>
+
+  </footer>
+</main>
+    </div>
+  </div>
+
+<script>
+  window.addEventListener('mousemove', e => {
+    document.body.style.setProperty('--x', e.clientX + 'px');
+    document.body.style.setProperty('--y', e.clientY + 'px');
+  });
+</script>
+</body>
+</html>
